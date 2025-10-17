@@ -11,7 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Application", "ToDo.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Domain", "ToDo.Domain\ToDo.Domain.csproj", "{7FD44CA8-C3E1-4949-BE3F-F47094AB449D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Infrastructure", "ToDo.Infrastructure\ToDo.Infrastructure.csproj", "{ED3DB2F6-49BA-412D-8F43-342C148C7596}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{BA02F20C-132A-4D93-9ECF-81C8A8838AEB}"
+	ProjectSection(SolutionItems) = preProject
+		Common\ProjectBase.props = Common\ProjectBase.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Infrastructure", "ToDo.Infrastructure\ToDo.Infrastructure.csproj", "{5C707D13-A51D-4A27-B436-AFA5E1674E2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,9 +36,9 @@ Global
 		{7FD44CA8-C3E1-4949-BE3F-F47094AB449D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FD44CA8-C3E1-4949-BE3F-F47094AB449D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FD44CA8-C3E1-4949-BE3F-F47094AB449D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED3DB2F6-49BA-412D-8F43-342C148C7596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED3DB2F6-49BA-412D-8F43-342C148C7596}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED3DB2F6-49BA-412D-8F43-342C148C7596}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED3DB2F6-49BA-412D-8F43-342C148C7596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C707D13-A51D-4A27-B436-AFA5E1674E2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C707D13-A51D-4A27-B436-AFA5E1674E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C707D13-A51D-4A27-B436-AFA5E1674E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C707D13-A51D-4A27-B436-AFA5E1674E2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
