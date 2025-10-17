@@ -1,0 +1,8 @@
+﻿services:
+  todo:
+    image: todo
+    build:
+      context: .
+      dockerfile: ToDo/Dockerfile
+    ports:
+      - "8080:8080"
