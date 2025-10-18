@@ -20,22 +20,22 @@ public class ToDoItemRepository : IToDoItemRepository
 	public async Task<IEnumerable<ToDoItem>> GetAllAsync()
 		=> await _context.ToDoItems.ToListAsync();
 
-	public async Task AddAsync(ToDoItem item)
+	public async Task AddAsync(ToDoItem toDoItem)
 	{
-		await _context.ToDoItems.AddAsync(item);
+		await _context.ToDoItems.AddAsync(toDoItem);
 		await _context.SaveChangesAsync();
 	}
 
-	public async Task UpdateAsync(ToDoItem item)
+	public async Task UpdateAsync(ToDoItem toDoItem)
 	{
-		_context.ToDoItems.Update(item);
+		_context.ToDoItems.Update(toDoItem);
 		await _context.SaveChangesAsync();
 	}
 
 	public async Task DeleteAsync(Guid id)
 	{
-		ToDoItem item = (await _context.ToDoItems.FindAsync(id))!;
-		_context.ToDoItems.Remove(item);
+		ToDoItem toDoItem = (await _context.ToDoItems.FindAsync(id))!;
+		_context.ToDoItems.Remove(toDoItem);
 		await _context.SaveChangesAsync();
 	}
 
