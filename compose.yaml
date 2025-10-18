@@ -1,8 +1,28 @@
-﻿services:
+﻿version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: todo_db
+    environment:
+      POSTGRES_USER: todo_user
+      POSTGRES_PASSWORD: todo_pw
+      POSTGRES_DB: todo_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
   todo:
-    image: todo
     build:
       context: .
-      dockerfile: ToDo/Dockerfile
+      dockerfile: ToDo.API/Dockerfile
+    container_name: todo_api
     ports:
-      - "8080:8080"
+      - "5290:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=todo_db;Username=todo_user;Password=todo_pw"
+
+volumes:
+  pgdata:
