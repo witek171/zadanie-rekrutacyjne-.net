@@ -14,16 +14,17 @@ public class ToDoItemRepository : IToDoItemRepository
 		_context = context;
 	}
 
-	public async Task<ToDoItem> GetByIdAsync(Guid id)
-		=> (await _context.ToDoItems.FindAsync(id))!;
+	public async Task<ToDoItem?> GetByIdAsync(Guid id)
+		=> await _context.ToDoItems.FindAsync(id);
 
 	public async Task<IEnumerable<ToDoItem>> GetAllAsync()
 		=> await _context.ToDoItems.ToListAsync();
 
-	public async Task AddAsync(ToDoItem toDoItem)
+	public async Task<Guid> AddAsync(ToDoItem toDoItem)
 	{
 		await _context.ToDoItems.AddAsync(toDoItem);
 		await _context.SaveChangesAsync();
+		return toDoItem.Id;
 	}
 
 	public async Task UpdateAsync(ToDoItem toDoItem)
@@ -41,4 +42,12 @@ public class ToDoItemRepository : IToDoItemRepository
 
 	public async Task<bool> ExistsAsync(Guid id)
 		=> await _context.ToDoItems.AnyAsync(x => x.Id == id);
+
+	public async Task<IEnumerable<ToDoItem>> GetByExpirationDateRangeAsync(
+		DateTime startDate,
+		DateTime endDate)
+		=> await _context.ToDoItems
+			.Where(x => x.ExpirationDate >= startDate && x.ExpirationDate < endDate)
+			.OrderBy(x => x.ExpirationDate)
+			.ToListAsync();
 }
