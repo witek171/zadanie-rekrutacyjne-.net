@@ -10,6 +10,9 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.14"/>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -19,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\ToDo.Infrastructure\ToDo.Infrastructure.csproj" />
+		<ProjectReference Include="..\ToDo.Infrastructure\ToDo.Infrastructure.csproj"/>
 	</ItemGroup>
 
 </Project>

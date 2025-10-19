@@ -2,4 +2,8 @@
 
 	<Import Project="..\Common\ProjectBase.props"/>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\ToDo.Domain\ToDo.Domain.csproj" />
+	</ItemGroup>
+
 </Project>
