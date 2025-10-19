@@ -30,6 +30,7 @@ public class ToDoItem
 	}
 
 	public void MarkAsDone()
+		// mozna by dodac rzucanie wyjatku gdy CompletionPercentage jest juz ustawione na 100
 		=> CompletionPercentage = 100;
 
 	public void Update(
@@ -44,6 +45,7 @@ public class ToDoItem
 
 	public void SetCompletionPercentage(int completionPercentage)
 	{
+		// mozna by dodac rzucanie wyjatku gdy CompletionPercentage jest juz ustawione na podany procent 
 		if (completionPercentage is < 0 or > 100)
 			throw new ArgumentOutOfRangeException(nameof(completionPercentage),
 				"Percentage must be between 0 and 100");
