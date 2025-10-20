@@ -182,8 +182,7 @@ public class ToDoItemControllerTests : IClassFixture<CustomWebApplicationFactory
 		await using ApplicationDbContext dbContext = CreateDbContext();
 		dbContext.ToDoItems.AddRange(
 			new ToDoItem(now.AddDays(1), "Tomorrow", "Soon"),
-			new ToDoItem(now.AddDays(10), "Next Week", "Later")
-		);
+			new ToDoItem(now.AddDays(10), "Next Week", "Later"));
 		await dbContext.SaveChangesAsync();
 
 		HttpResponseMessage response = await _client.GetAsync("/api/ToDoItem/incoming?incomingPeriod=Week");
