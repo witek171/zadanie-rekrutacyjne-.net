@@ -5,7 +5,7 @@ using ToDo.Domain.Models;
 using ToDo.Domain.Models.Enums;
 using Xunit;
 
-namespace ToDo.Tests.Application.Services;
+namespace ToDo.UnitTests.Application.Services;
 
 public class ToDoItemServiceTests
 {
@@ -41,7 +41,7 @@ public class ToDoItemServiceTests
 	{
 		// Arrange
 		Guid id = Guid.NewGuid();
-		ToDoItem item = CreateToDoItem(id, DateTime.Now.AddDays(1), "Test Title", "Test Description", 0);
+		ToDoItem item = CreateToDoItem(id, new DateTime(2025, 10, 25), "Test Title", "Test Description", 0);
 
 		_toDoItemRepository
 			.Setup(r => r.GetByIdAsync(id))
@@ -78,9 +78,9 @@ public class ToDoItemServiceTests
 		// Arrange
 		List<ToDoItem> expectedItems = new()
 		{
-			CreateToDoItem(Guid.NewGuid(), DateTime.Now.AddDays(1), "Task 1", "Description 1", 0),
-			CreateToDoItem(Guid.NewGuid(), DateTime.Now.AddDays(2), "Task 2", "Description 2", 50),
-			CreateToDoItem(Guid.NewGuid(), DateTime.Now.AddDays(3), "Task 3", "Description 3", 100)
+			CreateToDoItem(Guid.NewGuid(), new DateTime(2025, 10, 24), "Task 1", "Description 1", 0),
+			CreateToDoItem(Guid.NewGuid(), new DateTime(2025, 10, 25), "Task 2", "Description 2", 50),
+			CreateToDoItem(Guid.NewGuid(), new DateTime(2025, 10, 26), "Task 3", "Description 3", 100)
 		};
 
 		_toDoItemRepository
@@ -119,7 +119,7 @@ public class ToDoItemServiceTests
 	public async Task AddAsync_WhenCalled_ShouldNormalizeTitleAndDescriptionAndReturnId()
 	{
 		// Arrange
-		ToDoItem itemToAdd = new(DateTime.Now, " test ", " Some description ");
+		ToDoItem itemToAdd = new(new DateTime(2025, 10, 25), " test ", " Some description ");
 		Guid id = Guid.NewGuid();
 
 		_toDoItemRepository.Setup(r => r.AddAsync(It.IsAny<ToDoItem>())).ReturnsAsync(id);
@@ -137,7 +137,7 @@ public class ToDoItemServiceTests
 	public async Task UpdateAsync_WhenCalled_ShouldNormalizeTitleAndDescriptionAndCallRepository()
 	{
 		// Arrange
-		ToDoItem itemToUpdate = new(DateTime.Now, " test ", " Some description ");
+		ToDoItem itemToUpdate = new(new DateTime(2025, 10, 25), " test ", " Some description ");
 
 		// Act
 		await _toDoItemService.UpdateAsync(itemToUpdate);
@@ -193,7 +193,7 @@ public class ToDoItemServiceTests
 	{
 		// Arrange
 		Guid id = Guid.NewGuid();
-		ToDoItem toDoItem = CreateToDoItem(id, DateTime.Now, "Test Title", "Desc", 0);
+		ToDoItem toDoItem = CreateToDoItem(id, new DateTime(2025, 10, 25), "Test Title", "Desc", 0);
 		_toDoItemRepository.Setup(r => r.GetByIdAsync(id)).ReturnsAsync(toDoItem);
 
 		// Act
@@ -214,7 +214,7 @@ public class ToDoItemServiceTests
 	{
 		// Arrange
 		Guid id = Guid.NewGuid();
-		ToDoItem toDoItem = CreateToDoItem(id, DateTime.Now, "Test Title", "Desc", 0);
+		ToDoItem toDoItem = CreateToDoItem(id, new DateTime(2025, 10, 25), "Test Title", "Desc", 0);
 		_toDoItemRepository.Setup(r => r.GetByIdAsync(id)).ReturnsAsync(toDoItem);
 
 		// Act
@@ -233,7 +233,7 @@ public class ToDoItemServiceTests
 	{
 		// Arrange
 		Guid id = Guid.NewGuid();
-		ToDoItem toDoItem = CreateToDoItem(id, DateTime.Now, "Test Title", "Desc", 0);
+		ToDoItem toDoItem = CreateToDoItem(id, new DateTime(2025, 10, 25), "Test Title", "Desc", 0);
 		_toDoItemRepository.Setup(r => r.GetByIdAsync(id)).ReturnsAsync(toDoItem);
 
 		// Act
@@ -251,10 +251,10 @@ public class ToDoItemServiceTests
 	public async Task GetIncomingAsync_WhenValidPeriod_ShouldReturnItemsFromRepository(IncomingPeriod period)
 	{
 		// Arrange
-		List<ToDoItem> expectedItems =
-		[
-			CreateToDoItem(Guid.NewGuid(), DateTime.Now, "Test", "Desc", 0)
-		];
+		List<ToDoItem> expectedItems = new()
+		{
+			CreateToDoItem(Guid.NewGuid(), new DateTime(2025, 10, 25), "Test", "Desc", 0)
+		};
 
 		_toDoItemRepository.Setup(r => r.GetByExpirationDateRangeAsync(
 			It.IsAny<DateTime>(), It.IsAny<DateTime>())).ReturnsAsync(expectedItems);
