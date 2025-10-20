@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{BA02F2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Infrastructure", "ToDo.Infrastructure\ToDo.Infrastructure.csproj", "{5C707D13-A51D-4A27-B436-AFA5E1674E2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Tests", "ToDo.Tests\ToDo.Tests.csproj", "{7DB7BA98-1D98-4D45-A59B-388DEDCD0731}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.UnitTests", "ToDo.UnitTests\ToDo.UnitTests.csproj", "{7DB7BA98-1D98-4D45-A59B-388DEDCD0731}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.IntegrationTests", "ToDo.IntegrationTests\ToDo.IntegrationTests.csproj", "{E8784042-4E15-42D2-8C16-CFE05D6E0E66}"
 EndProject
