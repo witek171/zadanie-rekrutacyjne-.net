@@ -6,12 +6,12 @@ Ten projekt uruchamia prostą aplikację ToDo w ASP.NET Core z bazą PostgreSQL 
 
 ## Wymagania
 
-- [Docker](https://www.docker.com/get-started)  
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- <a href="https://www.docker.com/get-started" target="_blank" rel="noopener noreferrer">Docker</a>
+- <a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener noreferrer">Docker Compose</a>
 
 Upewnij się, że porty **5290** i **5432** są wolne, aby kontenery mogły się uruchomić.
 
---
+---
 
 ## Krok 1: Sklonuj repozytorium
 
@@ -34,7 +34,7 @@ docker-compose up --build
 
 ## Krok 3: Sprawdź działanie aplikacji
 
-API będzie dostępne razem z dokumentacją Swagger pod adresem: [http://localhost:5290/swagger](http://localhost:5290/swagger)
+API będzie dostępne razem z dokumentacją Swagger pod adresem: <a href="http://localhost:5290/swagger" target="_blank" rel="noopener noreferrer">http://localhost:5290/swagger</a>
 
 ---
 
@@ -45,3 +45,4 @@ Aby zatrzymać kontenery i usunąć wolumen z danymi (reset bazy), w katalogu, w
 ```bash
 docker-compose down -v
 ```
+
