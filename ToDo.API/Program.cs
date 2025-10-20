@@ -36,10 +36,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+using (IServiceScope scope = app.Services.CreateScope())
+{
+	ApplicationDbContext db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+	if (db.Database.IsRelational())
+		db.Database.Migrate();
+}
+
 app.MapControllers();
 
 app.MapHealthChecks("health");
 
 app.Run();
 
-public partial class Program { }
+public partial class Program
+{
+}
